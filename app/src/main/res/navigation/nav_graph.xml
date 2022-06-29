@@ -3,11 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/listArtistFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/listArtistFragment"
-        android:name="com.namchok.practiceandroidmvvm.module.fragment.ListArtistFragment"
-        android:label="fragment_list_artist"
-        tools:layout="@layout/fragment_list_artist" />
+        android:id="@+id/homeFragment"
+        android:name="com.namchok.practiceandroidmvvm.module.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/homeFragment_to_listAlbumFragment"
+            app:destination="@id/listAlbumFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listAlbumFragment"
+        android:name="com.namchok.practiceandroidmvvm.module.fragment.ListAlbumFragment"
+        android:label="fragment_list_album"
+        tools:layout="@layout/fragment_list_album" />
 </navigation>

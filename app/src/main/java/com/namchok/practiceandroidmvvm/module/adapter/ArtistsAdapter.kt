@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.namchok.practiceandroidmvvm.R
@@ -36,6 +37,7 @@ class ArtistsAdapter(): RecyclerView.Adapter<ArtistsAdapter.ViewHolder>() {
         var image = itemView.imgProfileArtist
         var type = itemView.tvArtistType
         var popularity = itemView.tvArtistPopularity
+        var view = itemView.linearArtist
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -46,6 +48,11 @@ class ArtistsAdapter(): RecyclerView.Adapter<ArtistsAdapter.ViewHolder>() {
             Glide.with(it)
                 .load(mListArtist[position].images[0].url)
                 .into(holder.image)
+        }
+        holder.view.setOnClickListener {view ->
+            view.findNavController()
+                .navigate(R.id.homeFragment_to_listAlbumFragment)
+
         }
 
     }
