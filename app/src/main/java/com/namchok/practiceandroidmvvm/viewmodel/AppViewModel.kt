@@ -8,6 +8,10 @@ import com.namchok.practiceandroidmvvm.model.dao.ArtistsDao
 import com.namchok.practiceandroidmvvm.model.dao.PlayListDao
 import com.namchok.practiceandroidspotify.repository.SpotifyServiceRepository
 import com.namchok.practiceandroidspotify.services.RepositoryCallback
+import androidx.lifecycle.LiveData
+
+
+
 
 class AppViewModel(private var mRepository: SpotifyServiceRepository): ViewModel() {
 
@@ -33,6 +37,10 @@ class AppViewModel(private var mRepository: SpotifyServiceRepository): ViewModel
             }
 
         })
+    }
+
+    fun getSeveralArtist(): LiveData<ArrayList<Artist>> {
+        return mListArtist
     }
 
     fun getPlaylist(){

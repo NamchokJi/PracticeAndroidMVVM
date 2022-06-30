@@ -22,6 +22,7 @@ class HomeFragment : Fragment() {
     private var mArtistAdapter = ArtistsAdapter()
     private var mPlaylistAdapter = PlaylistAdapter()
     private var viewModel:AppViewModel? = null
+    private val mRepository = SpotifyServiceRepository()
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -31,7 +32,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var mRepository = SpotifyServiceRepository()
         val factory = AppViewModelFactory(mRepository)
 
         val artistLayoutManager = LinearLayoutManager(context)

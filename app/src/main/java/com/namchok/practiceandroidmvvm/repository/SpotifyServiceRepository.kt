@@ -1,6 +1,9 @@
 package com.namchok.practiceandroidspotify.repository
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.google.gson.JsonSyntaxException
+import com.namchok.practiceandroidmvvm.model.common.Artist
 import com.namchok.practiceandroidspotify.datasource.SpotifyServiceDatasource
 import com.namchok.practiceandroidmvvm.model.dao.ArtistsDao
 import com.namchok.practiceandroidmvvm.model.dao.PlayListDao
@@ -11,7 +14,7 @@ import retrofit2.Response
 
 class SpotifyServiceRepository {
 
-    private var mDataSource = SpotifyServiceDatasource()
+    var mDataSource = SpotifyServiceDatasource()
 
     fun getSeveralArtists(id: String, callback: RepositoryCallback<ArtistsDao>) {
         callback.onPreExecute()
